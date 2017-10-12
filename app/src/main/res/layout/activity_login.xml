@@ -6,13 +6,115 @@
     android:layout_height="match_parent"
     tools:context="com.example.michalke.app_berufsschule.LoginActivity">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tLAnleitung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:text="@string/loginManual"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="2sp"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:id="@+id/tLUsername"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/loginUsername"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/eLUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="50dp"
+            android:paddingTop="2dp">
+
+            <TextView
+                android:id="@+id/tLPassword"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/loginPassword"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/eLPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bLogin"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="@string/login"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lRegister"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+
+        <TextView
+            android:id="@+id/tHinweis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
