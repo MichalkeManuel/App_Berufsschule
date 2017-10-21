@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.michalke.app_berufsschule.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/logo_bsf"/>
+
+        <TextView
+            android:id="@+id/tRAnleitung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/registerManual"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:id="@+id/tRSurname"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/registerSurname"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/eRSurname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp">
+
+            <TextView
+                android:id="@+id/tRForename"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/registerPrename"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/eRForename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp">
+
+            <TextView
+                android:id="@+id/tRUsername"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/registerUsername"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/eRUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="50dp"
+            android:paddingTop="2dp">
+
+            <TextView
+                android:id="@+id/tRPassword"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/registerPassword"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/eRPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textVisiblePassword"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bRegister"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="@string/rRegister"
+            android:onClick="register"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="25dp"/>
+
+
+    </LinearLayout>
+
+
+</android.widget.RelativeLayout>
