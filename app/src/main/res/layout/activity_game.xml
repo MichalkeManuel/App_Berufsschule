@@ -4,6 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background1"
     tools:context="com.example.michalke.app_berufsschule.GameActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:id="@+id/buttonRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="right"
+            android:src="@drawable/right"
+            android:layout_marginTop="275dp"
+            android:layout_marginLeft="600dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="left"
+            android:src="@drawable/left"
+            android:layout_marginTop="275dp"
+            android:layout_marginLeft="25dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonUpperRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="upperRight"
+            android:src="@drawable/upperright"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="600dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonUpperLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="upperLeft"
+            android:src="@drawable/upperleft"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="25dp"/>
+
+        <ImageView
+            android:id="@+id/stickmanMove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stickman"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="125dp" />
+
+    </RelativeLayout>
 
 </android.widget.RelativeLayout>
