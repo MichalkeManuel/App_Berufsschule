@@ -5,30 +5,31 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class UserActivity extends AppCompatActivity
 {
-    ImageButton bSettings;
+    private TextView tUUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE);
-        TextView messageView = (TextView) findViewById(R.id.messageView);
-        messageView.setText(message);
+        if(!SharedPrefManager.getInstance(this).isLoggedIn())
+        {
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
 
-        bSettings = (ImageButton) findViewById(R.id.bSettings);
-        bSettings.setBackground(null);
+        tUUsername = (TextView) findViewById(R.id.messageView);
+        tUUsername.setText(SharedPrefManager.getInstance(this).getUsername());
     }
 
     public void open (View view)
@@ -49,25 +50,32 @@ public class UserActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which)
             {
                 finish();
+                startActivity(new Intent(UserActivity.this, LoginActivity.class));
+                SharedPrefManager.getInstance(UserActivity.this).logout();
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
 
-    public void game (View view)
-    {
-        Intent intent = new Intent(UserActivity.this, GameActivity.class);
-        UserActivity.this.startActivity(intent);
-    }
-
-    public  void settings (View view)
-    {
-
-    }
-
-    public void close (View view)
+    public void logout (View view)
     {
         finish();
+        startActivity(new Intent(UserActivity.this, LoginActivity.class));
+        SharedPrefManager.getInstance(this).logout();
     }
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        Toast.makeText(this, "Noch gibt es keine Einstellungen!", Toast.LENGTH_SHORT).show();
+        return true;
+    }*/
 }

@@ -2,7 +2,6 @@
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.michalke.app_berufsschule.UserActivity">
@@ -10,12 +9,13 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:orientation="vertical"
-        android:paddingBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="25dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="25dp">
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -40,10 +40,10 @@
             android:layout_marginTop="110dp"
             android:text=""
             android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"/>
 
         <Button
-            android:id="@+id/bConfirm"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -51,29 +51,18 @@
             android:onClick="open"
             android:text="@string/confirmAlert" />
 
+
         <Button
-            android:id="@+id/bPlay"
+            android:id="@+id/bExit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="350dp"
-            android:onClick="game"
-            android:text="Spielen!!!"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-
-        <Button
-            android:id="@+id/bExit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="500dp"
-            android:onClick="close"
+            android:onClick="logout"
             android:text="@string/UserExit"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/bSettings"

@@ -2,7 +2,6 @@
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.michalke.app_berufsschule.RegisterActivity">
@@ -12,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerHorizontal="true"
         android:paddingTop="25dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -40,8 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:layout_marginTop="50dp"
             android:paddingBottom="2dp"
-            android:paddingTop="50dp">
+            android:paddingTop="2dp">
 
             <TextView
                 android:id="@+id/tRSurname"
@@ -121,7 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="50dp"
+            android:layout_marginBottom="50dp"
+            android:paddingBottom="2dp"
             android:paddingTop="2dp">
 
             <TextView
@@ -152,7 +154,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:text="@string/rRegister"
-            android:onClick="register"
+            android:onClick="rRegister"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="25dp"/>

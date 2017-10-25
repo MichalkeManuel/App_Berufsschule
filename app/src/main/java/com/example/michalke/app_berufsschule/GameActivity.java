@@ -3,6 +3,7 @@ package com.example.michalke.app_berufsschule;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -37,7 +38,6 @@ public class GameActivity extends AppCompatActivity
     public void right()
     {
         //stickmanMove.setX(currentX += 10);
-
     }
 
     public void left()
