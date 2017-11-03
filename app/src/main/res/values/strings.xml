@@ -18,4 +18,5 @@
     <string name="registerUsername">Username:</string>
     <string name="registerPassword">Passwort:</string>
     <string name="rRegister">Registrieren!</string>
+    <string name="play">Spielen!</string>
 </resources>

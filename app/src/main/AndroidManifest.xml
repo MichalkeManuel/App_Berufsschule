@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.michalke.app_berufsschule">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,12 +22,16 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".UserActivity"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".GameActivity"
+            android:name=".SinglePlayerActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".DualDeviceActivity"
             android:screenOrientation="sensorLandscape"/>
     </application>
+
 </manifest>

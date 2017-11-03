@@ -1,29 +1,24 @@
 package com.example.michalke.app_berufsschule;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-public class GameActivity extends AppCompatActivity
+public class SinglePlayerActivity extends AppCompatActivity
 {
     ImageButton buttonRight, buttonLeft, buttonUpperRight, buttonUpperLeft;
     ImageView stickmanMove;
 
-    //int currentX = (int)stickmanMove.getX();
-    //int currentY = (int)stickmanMove.getY();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-
+        setContentView(R.layout.activity_single_player);
         buttonRight = (ImageButton) findViewById(R.id.buttonRight);
         buttonRight.setBackground(null);
         buttonLeft = (ImageButton) findViewById(R.id.buttonLeft);
@@ -33,29 +28,32 @@ public class GameActivity extends AppCompatActivity
         buttonUpperLeft = (ImageButton) findViewById(R.id.buttonUpperLeft);
         buttonUpperLeft.setBackground(null);
         stickmanMove = (ImageView) findViewById(R.id.stickmanMove);
+        //stickmanMove.setX(50);
+        //stickmanMove.setY(50);
     }
 
-    public void right()
-    {
-        //stickmanMove.setX(currentX += 10);
-    }
 
-    public void left()
-    {
-        //stickmanMove.setY(currentX -= 10);
-    }
+    //public void right()
+    //{
+      //stickmanMove.setX(50);
+    //}
 
-    public void upperRight()
-    {
-        //stickmanMove.setX(currentX += 10);
-        //stickmanMove.setY(currentY += 10);
-    }
+    //public void left()
+    //{
+      //stickmanMove.setY(50);
+    //}
 
-    public void upperLeft()
-    {
-        //stickmanMove.setX(currentX -= 10);
-        //stickmanMove.setY(currentY += 10);
-    }
+    //  public void upperRight()
+    //{
+    //   stickmanMove.setX(currentX += 10);
+    //  stickmanMove.setY(currentY += 10);
+    //}
+
+    //public void upperLeft()
+    //{
+    //   stickmanMove.setX(currentX -= 10);
+    //   stickmanMove.setY(currentY += 10);
+    //}
 
     //Sobald x = 535 überschritten soll das Spiel beendet sein!
 }
