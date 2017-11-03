@@ -3,6 +3,8 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/singlePlayer"
             android:title="1 Spieler"/>
+        <item android:id="@+id/dualPlayer"
+            android:title="2 Spieler"/>
         <item android:id="@+id/dualDivice"
             android:title="2 Geräte"/>
     </group>

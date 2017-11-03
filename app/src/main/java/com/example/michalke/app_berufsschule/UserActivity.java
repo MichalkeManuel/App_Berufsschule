@@ -78,12 +78,17 @@ public class UserActivity extends AppCompatActivity
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.modes, menu);
         MenuItem menuOne = menu.findItem(R.id.singlePlayer);
+        MenuItem menuDual = menu.findItem(R.id.dualPlayer);
         MenuItem menuDev = menu.findItem(R.id.dualDivice);
         if(item_selection == 1)
         {
             menuOne.setChecked(true);
         }
         else if (item_selection == 2)
+        {
+            menuDual.setChecked(true);
+        }
+        else if (item_selection == 3)
         {
             menuDev.setChecked(true);
         }
@@ -98,12 +103,17 @@ public class UserActivity extends AppCompatActivity
                 Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Spiel für 1 Spieler!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, SinglePlayerActivity.class));
                 item_selection = 1;
-                return true;
+                break;
+            case R.id.dualPlayer:
+                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Speil für 2 Spieler!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, DualPlayerActivity.class));
+                item_selection = 2;
+                break;
             case R.id.dualDivice:
                 Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Spiel für 2 Geräte!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, DualDeviceActivity.class));
-                item_selection = 2;
-                return true;
+                item_selection = 3;
+                break;
         }
         return super.onContextItemSelected(item);
     }
