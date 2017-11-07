@@ -11,16 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true">
 
-        <ImageButton
-            android:id="@+id/buttonRight"
+        <TextView
+            android:id="@+id/tTimerWatch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="right"
-            android:src="@drawable/right"
-            android:layout_marginTop="315dp"
-            android:layout_marginLeft="600dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:text="0:00:000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"/>
+
+        <Button
+            android:id="@+id/bStartGame"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:onClick="startGame"
+            android:text="!!! START !!!"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/buttonLeft"
@@ -28,41 +46,81 @@
             android:layout_height="wrap_content"
             android:onClick="left"
             android:src="@drawable/left"
-            android:layout_marginTop="315dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"/>
 
         <ImageButton
-            android:id="@+id/buttonUpperRight"
+            android:id="@+id/buttonUpLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="upperRight"
-            android:src="@drawable/upperright"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="600dp"/>
+            android:onClick="upLeft"
+            android:src="@drawable/upleft"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="85dp"/>
 
         <ImageButton
-            android:id="@+id/buttonUpperLeft"
+            android:id="@+id/buttonDownLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="upperLeft"
-            android:src="@drawable/upperleft"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="10dp"/>
+            android:onClick="downLeft"
+            android:src="@drawable/downleft"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="right"
+            android:src="@drawable/right"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonUpRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="upRight"
+            android:src="@drawable/upright"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="85dp"/>
+
+        <ImageButton
+            android:id="@+id/buttonDownRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="downRight"
+            android:src="@drawable/downright"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
 
         <ImageView
             android:id="@+id/stickmanMove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stickman"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="175dp" />
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"/>
 
         <ImageView
             android:id="@+id/goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/goal"
-            android:layout_marginStart="600dp"/>
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"/>
 
         <ImageButton
             android:id="@+id/exit"
@@ -70,7 +128,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/exit"
             android:onClick="exit"
-            android:layout_marginStart="625dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
 
