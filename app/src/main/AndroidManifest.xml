@@ -22,19 +22,25 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".UserActivity"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".SinglePlayerActivity"
-            android:screenOrientation="sensorLandscape"/>
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".DualPlayerActivity"
-            android:screenOrientation="sensorLandscape"/>
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".DualDeviceActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".SinglePlayer_Level2"
             android:screenOrientation="sensorLandscape"/>
+        <activity
+            android:name=".Result"
+            android:screenOrientation="sensorPortrait" />
     </application>
 
 </manifest>

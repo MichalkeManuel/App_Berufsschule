@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.michalke.app_berufsschule.UserActivity">
+    tools:context="com.example.michalke.app_berufsschule.Result">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -22,6 +22,7 @@
         android:layout_marginTop="0dp">
 
         <ImageView
+            android:id="@+id/iLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -30,68 +31,79 @@
             android:src="@drawable/logo_bsf" />
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/tResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:text="@string/loggedinText"
-            android:textSize="15sp" />
+            android:text="Ergebnis:"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/messageView"
+            android:id="@+id/scoreUserView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="150dp"
-            android:text=""
+            android:text="username"
+            android:textSize="45sp"
+            android:textStyle="bold|italic"
+            android:textColor="#32CD32"/>
+
+        <TextView
+            android:id="@+id/resultView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:text="time"
+            android:textSize="45sp"
+            android:textStyle="bold|italic"
+            android:textColor="#32CD32"/>
+
+        <TextView
+            android:id="@+id/tHighscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="350dp"
+            android:text="Highsore:"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/highscoreUserView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="400dp"
+            android:text="username"
             android:textSize="25sp"
-            android:textStyle="bold|italic"/>
+            android:textStyle="bold|italic"
+            android:textColor="#FF0000"/>
 
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/highscoreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="250dp"
-            android:onClick="confirm"
-            android:text="@string/confirmAlert" />
+            android:layout_marginTop="425dp"
+            android:text="time"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            android:textColor="#FF0000"/>
 
         <Button
-            android:id="@+id/bPlay"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="450dp"
-            android:onClick="play"
-            android:text="@string/play"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-
-        <Button
-            android:id="@+id/bExit"
+            android:id="@+id/bBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="50dp"
-            android:onClick="logout"
-            android:text="@string/UserExit"
+            android:onClick="back"
+            android:text="Zurück"
             android:textSize="20sp"/>
-
-        <ImageButton
-            android:id="@+id/bSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="50dp"
-            android:onClick="settings"
-            android:src="@drawable/settings_icon" />
-
     </RelativeLayout>
-
 </android.widget.RelativeLayout>

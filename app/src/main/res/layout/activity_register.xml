@@ -6,43 +6,58 @@
     android:layout_height="match_parent"
     tools:context="com.example.michalke.app_berufsschule.RegisterActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:paddingTop="25dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="5dp"
-        android:layout_marginTop="10dp">
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="center"
-            android:src="@drawable/logo_bsf"/>
-
-        <TextView
-            android:id="@+id/tRAnleitung"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
-            android:text="@string/registerManual"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textSize="20sp"/>
+        android:layout_alignParentTop="true"
+        android:paddingTop="0dp"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="0dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="0dp"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="50dp"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            android:layout_marginTop="0dp">
+
+            <ImageView
+                android:id="@+id/iLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/logo_bsf" />
+
+            <TextView
+                android:id="@+id/tRAnleitung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="@string/registerManual"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:paddingBottom="2sp"
+                android:paddingTop="2dp">
 
             <TextView
                 android:id="@+id/tRSurname"
@@ -65,9 +80,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingBottom="2dp"
             android:paddingTop="2dp">
 
@@ -92,9 +107,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingBottom="2dp"
             android:paddingTop="2dp">
 
@@ -119,9 +134,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="50dp"
             android:paddingBottom="2dp"
             android:paddingTop="2dp">
@@ -152,15 +167,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:text="@string/rRegister"
             android:onClick="rRegister"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="25dp"/>
-
-
+            android:textStyle="bold"/>
     </LinearLayout>
-
+    </RelativeLayout>
 
 </android.widget.RelativeLayout>

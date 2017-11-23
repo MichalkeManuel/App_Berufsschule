@@ -39,7 +39,7 @@ public class UserActivity extends AppCompatActivity
         bSettings.setBackground(null);
     }
 
-    public void open (View view)
+    public void confirm (View view)
     {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Bitte bestätigen!\nIst das Ihr Username?");

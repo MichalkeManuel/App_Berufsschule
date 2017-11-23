@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class SinglePlayerActivity extends AppCompatActivity
 {
-    Button bStartGame;
+    Button bStartGame, bRestartGame;
     ImageButton buttonRight, buttonLeft, buttonUpRight, buttonUpLeft, buttonDownRight, buttonDownLeft, buttonExit;
     ImageView stickmanMove, goal;
     TextView tTimerWatch;
@@ -35,6 +35,9 @@ public class SinglePlayerActivity extends AppCompatActivity
             secs %= 60;
             int miliseconds = (int) (updateTime%1000);
             tTimerWatch.setText("" + mins + ":" + String.format("%02d", secs) + ":" + String.format("%03d", miliseconds));
+            //tTimerWatch.toString().split(":");
+            String watch = tTimerWatch.toString();
+            //int timer = Integer.parseInt(watch.replaceAll("[\\D]",""));
             customhandler.postDelayed(this, 0);
         }
     };
@@ -48,6 +51,8 @@ public class SinglePlayerActivity extends AppCompatActivity
         setContentView(R.layout.activity_single_player);
 
         bStartGame = (Button) findViewById(R.id.bStartGame);
+        bRestartGame = (Button) findViewById(R.id.bRestartGame);
+        bRestartGame.setEnabled(false);
         tTimerWatch = (TextView) findViewById(R.id.tTimerWatch);
         buttonRight = (ImageButton) findViewById(R.id.buttonRight);
         buttonRight.setBackground(null);
@@ -84,14 +89,22 @@ public class SinglePlayerActivity extends AppCompatActivity
         startTime = SystemClock.uptimeMillis();
         customhandler.postDelayed(updateTimerThread, 0);
         bStartGame.setEnabled(false);
+        bRestartGame.setEnabled(true);
     }
 
+    public void restartGame(View view)
+    {
+        startActivity(new Intent(getApplicationContext(), SinglePlayerActivity.class));
+        finish();
+    }
 
     public void right(View view)
     {
+        float x = 50.0f;
+
         if (currentX <= goal.getX())
         {
-            stickmanMove.setX(currentX += 50.0f);
+            stickmanMove.setX(currentX += x);
         }
         else
         {
@@ -110,8 +123,8 @@ public class SinglePlayerActivity extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SinglePlayerActivity.this, SinglePlayer_Level2.class));
                 }
             });
             alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
@@ -119,7 +132,13 @@ public class SinglePlayerActivity extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
+
+                    Intent resultIntent = new Intent(SinglePlayerActivity.this, Result.class);
+                    resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
+                    //resultIntent.putExtra("SCORE_Value", );
+                    startActivity(resultIntent);
+
                 }
             });
             AlertDialog alertDialog = alertDialogBuilder.create();
@@ -136,36 +155,6 @@ public class SinglePlayerActivity extends AppCompatActivity
         }
         else
         {
-            customhandler.removeCallbacks(updateTimerThread);
-            buttonRight.setEnabled(false);
-            buttonLeft.setEnabled(false);
-            buttonUpRight.setEnabled(false);
-            buttonUpLeft.setEnabled(false);
-            buttonDownRight.setEnabled(false);
-            buttonDownLeft.setEnabled(false);
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-            alertDialog.setCancelable(false);
         }
     }
 
@@ -178,36 +167,6 @@ public class SinglePlayerActivity extends AppCompatActivity
         }
         else
         {
-            customhandler.removeCallbacks(updateTimerThread);
-            buttonRight.setEnabled(false);
-            buttonLeft.setEnabled(false);
-            buttonUpRight.setEnabled(false);
-            buttonUpLeft.setEnabled(false);
-            buttonDownRight.setEnabled(false);
-            buttonDownLeft.setEnabled(false);
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-            alertDialog.setCancelable(false);
         }
     }
 
@@ -220,36 +179,6 @@ public class SinglePlayerActivity extends AppCompatActivity
         }
         else
         {
-            customhandler.removeCallbacks(updateTimerThread);
-            buttonRight.setEnabled(false);
-            buttonLeft.setEnabled(false);
-            buttonUpRight.setEnabled(false);
-            buttonUpLeft.setEnabled(false);
-            buttonDownRight.setEnabled(false);
-            buttonDownLeft.setEnabled(false);
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-            alertDialog.setCancelable(false);
         }
     }
 
@@ -262,36 +191,6 @@ public class SinglePlayerActivity extends AppCompatActivity
         }
         else
         {
-            customhandler.removeCallbacks(updateTimerThread);
-            buttonRight.setEnabled(false);
-            buttonLeft.setEnabled(false);
-            buttonUpRight.setEnabled(false);
-            buttonUpLeft.setEnabled(false);
-            buttonDownRight.setEnabled(false);
-            buttonDownLeft.setEnabled(false);
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-            alertDialog.setCancelable(false);
         }
     }
 
@@ -304,36 +203,6 @@ public class SinglePlayerActivity extends AppCompatActivity
         }
         else
         {
-            customhandler.removeCallbacks(updateTimerThread);
-            buttonRight.setEnabled(false);
-            buttonLeft.setEnabled(false);
-            buttonUpRight.setEnabled(false);
-            buttonUpLeft.setEnabled(false);
-            buttonDownRight.setEnabled(false);
-            buttonDownLeft.setEnabled(false);
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-            alertDialog.setCancelable(false);
         }
     }
 

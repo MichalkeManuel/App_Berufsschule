@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.michalke.app_berufsschule.SinglePlayerActivity">
+    tools:context="com.example.michalke.app_berufsschule.SinglePlayer_Level2">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/tTimerWatch"
@@ -122,14 +120,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stickman"
-            android:layout_alignParentStart="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="150dp"/>
+
+        <ImageView
+            android:id="@+id/opener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/opener"
+            android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"/>
+
 
         <ImageView
             android:id="@+id/goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/goal"
+            android:src="@drawable/goal_close"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"/>
 
