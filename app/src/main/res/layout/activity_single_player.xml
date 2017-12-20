@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/stickman"
             android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"/>
+            android:layout_marginTop="450px"/>
 
         <ImageView
             android:id="@+id/goal"
@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/goal"
             android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"/>
+            android:layout_marginTop="350px"/>
 
         <ImageButton
             android:id="@+id/exit"

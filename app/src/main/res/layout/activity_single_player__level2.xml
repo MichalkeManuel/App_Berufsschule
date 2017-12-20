@@ -120,8 +120,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stickman"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="150dp"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="450px"/>
 
         <ImageView
             android:id="@+id/opener"
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/opener"
             android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"/>
+            android:layout_marginTop="550px"/>
 
 
         <ImageView
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/goal_close"
             android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"/>
+            android:layout_marginTop="350px"/>
 
         <ImageButton
             android:id="@+id/exit"

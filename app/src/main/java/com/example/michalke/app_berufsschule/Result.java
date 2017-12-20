@@ -15,7 +15,6 @@ import java.util.Arrays;
 
 public class Result extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,7 +22,7 @@ public class Result extends AppCompatActivity
         setContentView(R.layout.activity_result);
 
         TextView scoreUser = (TextView) findViewById(R.id.scoreUserView);
-        TextView scoreLabel = (TextView)findViewById(R.id.resultView);
+        TextView scoreLabel = (TextView) findViewById(R.id.resultView);
         TextView highScoreUser = (TextView) findViewById(R.id.highscoreUserView);
         TextView highScoreLabel = (TextView) findViewById(R.id.highscoreView);
 
@@ -32,41 +31,34 @@ public class Result extends AppCompatActivity
         scoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
         String scoreString = getIntent().getStringExtra("SCORE_String");
         scoreLabel.setText(scoreString);
-        String[] scoreArray = new String[3];
-        scoreArray = scoreString.split(":");
-        String s = "" + scoreArray[0] + scoreArray[1] +scoreArray[2];
-        int score = Integer.parseInt(s);
+        int score = scoreToInt(scoreString);
 
-        //highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
+        highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
         highScoreUser.setText("Noch nicht bestätigt");
-        String highScoreString = prefs.getString("HIGHSCORE_String", "-:--:---");
+        String highScoreString = prefs.getString("HIGHSCORE_String", "9:99:999");
         highScoreLabel.setText(highScoreString);
+        int highScore = scoreToInt(highScoreString);
 
-//        int score = getIntent().getIntExtra("SCORE_Value", 0);
-        int highScore = 0; //prefs.getInt("HIGH_SCORE", 0);
-
-
-        if (highScore == 0)
+        if (score < highScore)
         {
             highScore = score;
             highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-            highScoreLabel.setText(scoreString);
-        }
-        else if (score < highScore)
-        {
-            scoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-            highScoreLabel.setText(score);
-
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("HIGH_SCORE", score);
-            editor.commit();
+            highScoreLabel.setText(Integer.toString(highScore));
+            prefs.edit().putInt("highScore", highScore).apply();
         }
         else
         {
-            highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-            highScoreLabel.setText(highScore);
+            highScoreLabel.setText(Integer.toString(highScore));
         }
+    }
 
+    private int scoreToInt(String string)
+    {
+        String[] scoreArray = new String[3];
+        scoreArray = string.split(":");
+        String s = "" + scoreArray[0] + scoreArray[1] + scoreArray[2];
+        int score = Integer.parseInt(s);
+        return score;
     }
 
     public void back (View view)
