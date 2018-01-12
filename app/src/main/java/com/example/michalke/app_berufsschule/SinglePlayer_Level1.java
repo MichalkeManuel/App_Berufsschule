@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SinglePlayerActivity extends AppCompatActivity
+public class SinglePlayer_Level1 extends AppCompatActivity
 {
     Button bStartGame, bRestartGame;
     ImageButton buttonRight, buttonLeft, buttonUpRight, buttonUpLeft, buttonDownRight, buttonDownLeft, buttonExit;
@@ -49,7 +49,7 @@ public class SinglePlayerActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_player);
+        setContentView(R.layout.activity_single_player_level1);
 
         bStartGame = (Button) findViewById(R.id.bStartGame);
         bRestartGame = (Button) findViewById(R.id.bRestartGame);
@@ -95,15 +95,15 @@ public class SinglePlayerActivity extends AppCompatActivity
 
     public void restartGame(View view)
     {
-        startActivity(new Intent(getApplicationContext(), SinglePlayerActivity.class));
+        startActivity(new Intent(getApplicationContext(), SinglePlayer_Level1.class));
         finish();
     }
 
     public boolean isInGoal()
     {
-        if(currentX >= (goal.getX() - goal.getWidth()/2 + 17.5f) && currentX <= (goal.getX() + goal.getWidth()/2 - 17.5f))
+        if(currentX >= (goal.getX() - goal.getWidth()/2 + 17.5) && currentX <= (goal.getX() + goal.getWidth()/2 - 17.5))
         {
-            if(currentY >= (goal.getY() - goal.getHeight()/2 + 17.5f) && currentY <= (goal.getY() + goal.getHeight()/2 - 17.5f))
+            if(currentY >= (goal.getY() - goal.getHeight()/2 + 17.5) && currentY <= (goal.getY() + goal.getHeight()/2 - 17.5))
             {
                 return true;
             }
@@ -182,7 +182,7 @@ public class SinglePlayerActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which)
             {
                 finish();
-                startActivity(new Intent(SinglePlayerActivity.this, UserActivity.class));
+                startActivity(new Intent(SinglePlayer_Level1.this, UserActivity.class));
             }
         });
         alertDialogBuilder.setNegativeButton("Weiter spielen!", new DialogInterface.OnClickListener()
@@ -192,7 +192,7 @@ public class SinglePlayerActivity extends AppCompatActivity
             {
                 startTime = SystemClock.uptimeMillis();
                 customhandler.postDelayed(updateTimerThread, 0);
-                Toast.makeText(SinglePlayerActivity.this, "Sie bleiben im Spiel und es wird weiter ausgeführt!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SinglePlayer_Level1.this, "Sie bleiben im Spiel und es wird weiter ausgeführt!", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -217,8 +217,8 @@ public class SinglePlayerActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                //Toast.makeText(SinglePlayerActivity.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SinglePlayerActivity.this, SinglePlayer_Level2.class));
+                //Toast.makeText(SinglePlayer_Level1.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SinglePlayer_Level1.this, SinglePlayer_Level2.class));
             }
         });
         alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
@@ -226,9 +226,9 @@ public class SinglePlayerActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                //Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SinglePlayer_Level1.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
 
-                Intent resultIntent = new Intent(SinglePlayerActivity.this, Result.class);
+                Intent resultIntent = new Intent(SinglePlayer_Level1.this, Result.class);
                 resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
                 //resultIntent.putExtra("SCORE_Value", );
                 startActivity(resultIntent);

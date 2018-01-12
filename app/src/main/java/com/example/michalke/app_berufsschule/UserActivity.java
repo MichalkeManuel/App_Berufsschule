@@ -77,9 +77,9 @@ public class UserActivity extends AppCompatActivity
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.modes, menu);
-        MenuItem menuOne = menu.findItem(R.id.singlePlayer);
-        MenuItem menuDual = menu.findItem(R.id.dualPlayer);
-        MenuItem menuDev = menu.findItem(R.id.dualDivice);
+        MenuItem menuOne = menu.findItem(R.id.level1);
+        MenuItem menuDual = menu.findItem(R.id.level2);
+        MenuItem menuDev = menu.findItem(R.id.level3);
         if(item_selection == 1)
         {
             menuOne.setChecked(true);
@@ -99,19 +99,19 @@ public class UserActivity extends AppCompatActivity
     {
         switch (item.getItemId())
         {
-            case R.id.singlePlayer:
-                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Spiel für 1 Spieler!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, SinglePlayerActivity.class));
+            case R.id.level1:
+                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Sie spielen jetzt LEVEL 1!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SinglePlayer_Level1.class));
                 item_selection = 1;
                 break;
-            case R.id.dualPlayer:
-                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Speil für 2 Spieler!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, DualPlayerActivity.class));
+            case R.id.level2:
+                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Sie spielen jetzt LEVEL 2!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SinglePlayer_Level2.class));
                 item_selection = 2;
                 break;
-            case R.id.dualDivice:
-                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Spiel für 2 Geräte!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, DualDeviceActivity.class));
+            case R.id.level3:
+                Toast.makeText(UserActivity.this, item.getTitle() + "\n--> Sie spielen jetzt LEVEL 3!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SinglePlayer_Level3.class));
                 item_selection = 3;
                 break;
         }

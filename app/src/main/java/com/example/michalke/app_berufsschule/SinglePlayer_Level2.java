@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.ContactsContract;
+import android.support.constraint.solver.Goal;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class SinglePlayer_Level2 extends AppCompatActivity
 
         float currentX;
         float currentY = 450.0f;
+        boolean stepOn = false;
 
         @Override
         protected void onCreate(Bundle savedInstanceState)
@@ -94,122 +96,120 @@ public class SinglePlayer_Level2 extends AppCompatActivity
 
         public void restartGame(View view)
         {
-                startActivity(new Intent(getApplicationContext(), SinglePlayerActivity.class));
+                startActivity(new Intent(getApplicationContext(), SinglePlayer_Level2.class));
                 finish();
+        }
+
+        public boolean onOpener()
+        {
+            if(currentX >= (opener.getX() - opener.getWidth()/2)  && currentX <= (opener.getX() + opener.getWidth()/2))
+            {
+                if(currentY >= (opener.getY() - opener.getHeight()*3) && currentY <= (opener.getY() + opener.getHeight()/10))
+                {
+                    goal.setVisibility(View.INVISIBLE);
+                    goal.setImageResource(R.drawable.goal);
+                    goal.setVisibility(View.VISIBLE);
+                    stepOn = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public boolean isInGoal()
+        {
+            if(currentX >= (goal.getX() - goal.getWidth()/2 + 17.5f) && currentX <= (goal.getX() + goal.getWidth()/2 - 17.5f))
+            {
+                if(currentY >= (goal.getY() - goal.getHeight()/2 + 17.5f) && currentY <= (goal.getY() + goal.getHeight()/2 - 17.5f))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void right(View view)
         {
-                float x = 50.0f;
-
-                if (currentX <= goal.getX())
+            stickmanMove.setX(currentX += 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setX(currentX += x);
-                        if (currentX >= opener.getX())
-                        {
-                            goal.setVisibility(View.INVISIBLE);
-                            goal.setImageResource(R.drawable.goal);
-                            goal.setVisibility(View.VISIBLE);
-                        }
+                    inGoal();
                 }
-                else
-                {
-                        customhandler.removeCallbacks(updateTimerThread);
-                        buttonRight.setEnabled(false);
-                        buttonLeft.setEnabled(false);
-                        buttonUpRight.setEnabled(false);
-                        buttonUpLeft.setEnabled(false);
-                        buttonDownRight.setEnabled(false);
-                        buttonDownLeft.setEnabled(false);
-
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                        alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-                        alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
-                        {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which)
-                                {
-                                        Toast.makeText(SinglePlayer_Level2.this, "Das nächste Level ist noch in Arbeit!", Toast.LENGTH_SHORT).show();
-
-                                }
-                        });
-                        alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
-                        {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which)
-                                {
-                                        //Toast.makeText(SinglePlayerActivity.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-
-                                        Intent resultIntent = new Intent(SinglePlayer_Level2.this, Result.class);
-                                        resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
-                                        //resultIntent.putExtra("SCORE_Value", );
-                                        startActivity(resultIntent);
-
-                                }
-                        });
-                        AlertDialog alertDialog = alertDialogBuilder.create();
-                        alertDialog.show();
-                        alertDialog.setCancelable(false);
-                }
+            }
         }
 
         public void left(View view)
         {
-                if (currentX <= goal.getX())
+            stickmanMove.setX(currentX -= 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setX(currentX -= 50.0f);
+                    inGoal();
                 }
-                else
-                {
-                }
+            }
         }
 
         public void upRight(View view)
         {
-                if (currentX <= goal.getX())
+            stickmanMove.setY(currentY -= 50.0f);
+            stickmanMove.setX(currentX += 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setY(currentY -= 50.0f);
-                        stickmanMove.setX(currentX += 50.0f);
+                    inGoal();
                 }
-                else
-                {
-                }
+            }
         }
 
         public void upLeft(View view)
         {
-                if (currentX <= goal.getX())
+
+            stickmanMove.setY(currentY -= 50.0f);
+            stickmanMove.setX(currentX -= 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setY(currentY -= 50.0f);
-                        stickmanMove.setX(currentX -= 50.0f);
+                    inGoal();
                 }
-                else
-                {
-                }
+            }
         }
 
         public void downRight(View view)
         {
-                if (currentX <= goal.getX())
+            stickmanMove.setY(currentY += 50.0f);
+            stickmanMove.setX(currentX += 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setY(currentY += 50.0f);
-                        stickmanMove.setX(currentX += 50.0f);
+                    inGoal();
                 }
-                else
-                {
-                }
+            }
         }
 
         public void downLeft(View view)
         {
-                if (currentX <= goal.getX())
+            stickmanMove.setY(currentY += 50.0f);
+            stickmanMove.setX(currentX -= 50.0f);
+            onOpener();
+            if(stepOn == true)
+            {
+                if(isInGoal())
                 {
-                        stickmanMove.setY(currentY += 50.0f);
-                        stickmanMove.setX(currentX -= 50.0f);
+                    inGoal();
                 }
-                else
-                {
-                }
+            }
         }
 
         public void exit (View view)
@@ -240,5 +240,45 @@ public class SinglePlayer_Level2 extends AppCompatActivity
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
                 alertDialog.setCancelable(false);
+        }
+
+        public void inGoal()
+        {
+            customhandler.removeCallbacks(updateTimerThread);
+            buttonRight.setEnabled(false);
+            buttonLeft.setEnabled(false);
+            buttonUpRight.setEnabled(false);
+            buttonUpLeft.setEnabled(false);
+            buttonDownRight.setEnabled(false);
+            buttonDownLeft.setEnabled(false);
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
+            alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    startActivity(new Intent(SinglePlayer_Level2.this, SinglePlayer_Level3.class));
+
+                }
+            });
+            alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    //Toast.makeText(SinglePlayer_Level1.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
+
+                    Intent resultIntent = new Intent(SinglePlayer_Level2.this, Result.class);
+                    resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
+                    //resultIntent.putExtra("SCORE_Value", );
+                    startActivity(resultIntent);
+
+                }
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+            alertDialog.setCancelable(false);
         }
 }

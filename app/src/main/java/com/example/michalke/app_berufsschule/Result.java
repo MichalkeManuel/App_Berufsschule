@@ -3,15 +3,10 @@ package com.example.michalke.app_berufsschule;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
 
 public class Result extends AppCompatActivity
 {
@@ -64,7 +59,7 @@ public class Result extends AppCompatActivity
     public void back (View view)
     {
         finish();
-        startActivity(new Intent(Result.this, SinglePlayerActivity.class));
+        startActivity(new Intent(Result.this, SinglePlayer_Level1.class));
     }
 
 }

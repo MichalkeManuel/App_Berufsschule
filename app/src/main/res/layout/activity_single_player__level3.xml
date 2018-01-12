@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.michalke.app_berufsschule.SinglePlayerActivity">
-
+    tools:context="com.example.michalke.app_berufsschule.SinglePlayer_Level3">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="395dp"
+        android:layout_height="643dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentStart="true"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:id="@+id/tTimerWatch"
@@ -122,16 +122,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stickman"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="450px"/>
+
+        <ImageView
+            android:id="@+id/opener1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/opener1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="250dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"/>
 
         <ImageView
             android:id="@+id/goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/goal"
-            android:layout_alignParentRight="true"
+            android:src="@drawable/goal_close"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="350px"/>
+
+        <ImageView
+            android:id="@+id/opener2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/opener2"
+            android:layout_marginLeft="600dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="300dp"/>
 
         <ImageButton
             android:id="@+id/exit"
@@ -145,3 +164,4 @@
     </RelativeLayout>
 
 </android.widget.RelativeLayout>
+

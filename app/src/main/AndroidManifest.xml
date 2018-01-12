@@ -27,17 +27,14 @@
             android:name=".UserActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".SinglePlayerActivity"
-            android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name=".DualPlayerActivity"
-            android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name=".DualDeviceActivity"
+            android:name=".SinglePlayer_Level1"
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".SinglePlayer_Level2"
-            android:screenOrientation="sensorLandscape"/>
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".SinglePlayer_Level3"
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".Result"
             android:screenOrientation="sensorPortrait" />
