@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.michalke.app_berufsschule.Result">
+    tools:context="com.example.michalke.app_berufsschule.ResultActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -41,11 +41,21 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/scoreUserView"
+            android:id="@+id/tLevelView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="150dp"
+            android:text="Level X"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/scoreUserView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
             android:text="username"
             android:textSize="45sp"
             android:textStyle="bold|italic"
@@ -56,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="250dp"
             android:text="time"
             android:textSize="45sp"
             android:textStyle="bold|italic"
@@ -66,19 +76,20 @@
             android:id="@+id/tHighscore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="350dp"
+            android:layout_alignBottom="@+id/highscoreUserView"
+            android:layout_alignStart="@+id/highscoreUserView"
+            android:layout_marginBottom="52dp"
             android:text="Highsore:"
+            android:textColor="#000000"
             android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/highscoreUserView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="425dp"
             android:text="username"
             android:textSize="25sp"
             android:textStyle="bold|italic"
@@ -89,21 +100,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="425dp"
+            android:layout_marginTop="450dp"
             android:text="time"
             android:textSize="25sp"
             android:textStyle="bold|italic"
             android:textColor="#FF0000"/>
 
         <Button
-            android:id="@+id/bBack"
+            android:id="@+id/bLevel"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"
+            android:onClick="level"
+            android:text="Level"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/bHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="50dp"
-            android:onClick="back"
-            android:text="Zurück"
+            android:onClick="home"
+            android:text="Home"
             android:textSize="20sp"/>
     </RelativeLayout>
 </android.widget.RelativeLayout>

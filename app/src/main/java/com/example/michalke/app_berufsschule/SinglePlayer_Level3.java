@@ -4,8 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.provider.ContactsContract;
-import android.support.constraint.solver.Goal;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +43,8 @@ public class SinglePlayer_Level3 extends AppCompatActivity
     float currentY = 450.0f;
     boolean stepOn1 = false;
     boolean stepOn2 = false;
+    //int level = 3;
+    String levelNo = "Level 3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -101,7 +101,7 @@ public class SinglePlayer_Level3 extends AppCompatActivity
 
     public void restartGame(View view)
     {
-        startActivity(new Intent(getApplicationContext(), SinglePlayer_Level2.class));
+        startActivity(new Intent(getApplicationContext(), SinglePlayer_Level3.class));
         finish();
     }
 
@@ -279,13 +279,13 @@ public class SinglePlayer_Level3 extends AppCompatActivity
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Sie haben das Level mit "+ tTimerWatch.getText() + " Sekunden geschafft");
-        alertDialogBuilder.setPositiveButton("Nächstes Level?", new DialogInterface.OnClickListener()
+        alertDialogBuilder.setPositiveButton("Home!", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
                 Toast.makeText(SinglePlayer_Level3.this, "Sie haben alle aktuell existierenden Level gespielt!", Toast.LENGTH_SHORT).show();
-
+                startActivity(new Intent(SinglePlayer_Level3.this, UserActivity.class));
             }
         });
         alertDialogBuilder.setNegativeButton("Speichern?", new DialogInterface.OnClickListener()
@@ -295,9 +295,11 @@ public class SinglePlayer_Level3 extends AppCompatActivity
             {
                 //Toast.makeText(SinglePlayer_Level1.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
 
-                Intent resultIntent = new Intent(SinglePlayer_Level3.this, Result.class);
+                Intent resultIntent = new Intent(SinglePlayer_Level3.this, ResultActivity.class);
                 resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
                 //resultIntent.putExtra("SCORE_Value", );
+                //resultIntent.putExtra("LEVEL", level);
+                resultIntent.putExtra("LEVEL_No", levelNo);
                 startActivity(resultIntent);
 
             }

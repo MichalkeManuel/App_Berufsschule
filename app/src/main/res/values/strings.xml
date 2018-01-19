@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">App_Berufsschule</string>
+    <string name="app_name">ActivityAdventures</string>
     <string name="mypref">MyPref</string>
     <string name="loginManual">Bitte logen Sie sich mit \nIhrem Nutzernamen und Password ein:</string>
     <string name="loginUsername">Username:</string>
     <string name="loginPassword">Passwort:</string>
     <string name="login">Log In</string>
     <string name="lRegister">Registrieren?</string>
+    <string name="rLogin">Doch schon registriert?</string>
     <string name="loginSuccess">Glückwunsch! \nSie sind jetzt eingeloggt</string>
     <string name="loginWrong">Ihre Eingaben sind nicht korrekt!</string>
     <string name="loginFailure">3 Mal falsch eingegeben... \nApp wurde beendet!</string>

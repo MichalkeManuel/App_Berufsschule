@@ -144,19 +144,5 @@ public class LoginActivity extends AppCompatActivity
     {
         startActivity(new Intent(this, RegisterActivity.class));
     }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        Toast.makeText(this, "Noch gibt es keine Einstellungen!", Toast.LENGTH_SHORT).show();
-        return true;
-    }*/
 }
 

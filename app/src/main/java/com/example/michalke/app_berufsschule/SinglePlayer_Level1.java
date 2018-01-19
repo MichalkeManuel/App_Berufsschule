@@ -44,7 +44,8 @@ public class SinglePlayer_Level1 extends AppCompatActivity
 
     float currentX;
     float currentY = 450.0f;
-    //boolean goalReached = (currentX <= goal.getX() & currentY >= goal.getY());
+    int level = 1;
+    String levelNo = "Level 1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -226,11 +227,11 @@ public class SinglePlayer_Level1 extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                //Toast.makeText(SinglePlayer_Level1.this, "Speichern ist momentan noch nicht möglich!", Toast.LENGTH_SHORT).show();
-
-                Intent resultIntent = new Intent(SinglePlayer_Level1.this, Result.class);
+                Intent resultIntent = new Intent(SinglePlayer_Level1.this, ResultActivity.class);
                 resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
                 //resultIntent.putExtra("SCORE_Value", );
+                resultIntent.putExtra("LEVEL", level);
+                resultIntent.putExtra("LEVEL_No", levelNo);
                 startActivity(resultIntent);
 
             }

@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class UserActivity extends AppCompatActivity
 {
     private TextView tUUsername;
-    ImageButton bSettings;
+    //ImageButton bScore, bSettings;
     int item_selection = 0;
 
     @Override
@@ -35,8 +35,11 @@ public class UserActivity extends AppCompatActivity
         tUUsername = (TextView) findViewById(R.id.messageView);
         tUUsername.setText(SharedPrefManager.getInstance(this).getUsername());
 
-        bSettings = (ImageButton) findViewById(R.id.bSettings);
-        bSettings.setBackground(null);
+        //bScore = (ImageButton) findViewById(R.id.bScore);
+        //bScore.setBackground(null);
+
+        //bSettings = (ImageButton) findViewById(R.id.bSettings);
+        //bSettings.setBackground(null);
     }
 
     public void confirm (View view)
@@ -76,7 +79,7 @@ public class UserActivity extends AppCompatActivity
     {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.modes, menu);
+        menuInflater.inflate(R.menu.levels, menu);
         MenuItem menuOne = menu.findItem(R.id.level1);
         MenuItem menuDual = menu.findItem(R.id.level2);
         MenuItem menuDev = menu.findItem(R.id.level3);
@@ -125,6 +128,11 @@ public class UserActivity extends AppCompatActivity
         SharedPrefManager.getInstance(this).logout();
     }
 
+    /*public void viewScore (View view)
+    {
+        startActivity(new Intent(UserActivity.this, ResultActivity.class));
+    }
+
     public void settings (View view)
     {
         PopupMenu menu = new PopupMenu(UserActivity.this, bSettings);
@@ -139,19 +147,5 @@ public class UserActivity extends AppCompatActivity
             }
         });
         menu.show();
-    }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        Toast.makeText(this, "Noch gibt es keine Einstellungen!", Toast.LENGTH_SHORT).show();
-        return true;
     }*/
 }

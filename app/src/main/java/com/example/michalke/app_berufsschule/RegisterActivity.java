@@ -124,17 +124,8 @@ public class RegisterActivity extends AppCompatActivity
         registerUser();
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu)
+    public void rLogin(View view)
     {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        startActivity(new Intent(this, LoginActivity.class));
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        Toast.makeText(this, "Noch gibt es keine Einstellungen!", Toast.LENGTH_SHORT).show();
-        return true;
-    }*/
 }

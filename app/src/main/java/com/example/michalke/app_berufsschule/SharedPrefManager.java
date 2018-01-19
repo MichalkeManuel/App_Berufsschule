@@ -18,7 +18,7 @@ public class SharedPrefManager
     private static final String KEY_SURNAME = "surname";
     private static final String KEY_FORENAME = "forename";
     private static final String KEY_USERNAME = "username";
-    private static final String KEY_SCORE = "score";
+    //private static final String KEY_SCORE = "score";
 
 
     private SharedPrefManager(Context context)
