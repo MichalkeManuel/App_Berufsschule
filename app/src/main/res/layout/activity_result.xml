@@ -57,54 +57,80 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="200dp"
             android:text="username"
-            android:textSize="45sp"
+            android:textSize="35sp"
             android:textStyle="bold|italic"
             android:textColor="#32CD32"/>
 
         <TextView
-            android:id="@+id/resultView"
+        android:id="@+id/resultView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="time"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        android:textColor="#32CD32"/>
+
+        <!--<TextView
+            android:id="@+id/scoreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="250dp"
-            android:text="time"
-            android:textSize="45sp"
+            android:layout_marginTop="300dp"
+            android:text="score"
+            android:textSize="35sp"
             android:textStyle="bold|italic"
-            android:textColor="#32CD32"/>
+            android:textColor="#32CD32"/>-->
 
         <TextView
             android:id="@+id/tHighscore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/highscoreUserView"
-            android:layout_alignStart="@+id/highscoreUserView"
-            android:layout_marginBottom="52dp"
-            android:text="Highsore:"
+            android:layout_below="@+id/resultView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Ihr Score:"
             android:textColor="#000000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tHighscoreHinweis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@+id/tHighscore"
+            android:layout_marginTop="30dp"
+            android:text="@string/highScorehinweis"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <!--
+        <TextView
             android:id="@+id/highscoreUserView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="425dp"
-            android:text="username"
+            android:layout_alignTop="@+id/tHighscore"
+            android:layout_marginTop="50dp"
+            android:text="highscoreUser"
             android:textSize="25sp"
             android:textStyle="bold|italic"
             android:textColor="#FF0000"/>
+            -->
 
         <TextView
             android:id="@+id/highscoreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tHighscoreHinweis"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="450dp"
-            android:text="time"
-            android:textSize="25sp"
-            android:textStyle="bold|italic"
-            android:textColor="#FF0000"/>
+            android:layout_marginTop="50dp"
+            android:text="highscore"
+            android:textColor="#FF0000"
+            android:textSize="45sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/bLevel"
@@ -129,4 +155,5 @@
             android:text="Home"
             android:textSize="20sp"/>
     </RelativeLayout>
+
 </android.widget.RelativeLayout>

@@ -18,7 +18,9 @@ public class SharedPrefManager
     private static final String KEY_SURNAME = "surname";
     private static final String KEY_FORENAME = "forename";
     private static final String KEY_USERNAME = "username";
-    //private static final String KEY_SCORE = "score";
+    private static final String KEY_LEVELNO = "level_no";
+    private static final String KEY_USER = "user";
+    private static final String KEY_SCORE = "score";
 
 
     private SharedPrefManager(Context context)
@@ -71,5 +73,41 @@ public class SharedPrefManager
     {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USERNAME, null);
+    }
+
+    public boolean pushScore(int id, int level_no, String user, int score)
+    {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(KEY_USER_ID, id);
+        editor.putInt(KEY_LEVELNO, level_no);
+        editor.putString(KEY_USER, user);
+        editor.putInt(KEY_SCORE, score);
+        editor.apply();
+        return true;
+    }
+
+    public boolean highscoreToSharedPrefMan(String user, int score)
+    {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(KEY_USER, user);
+        editor.putInt(KEY_SCORE, score);
+        editor.apply();
+        return true;
+    }
+
+    public String getHighscoreValue()
+    {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_SCORE, null);
+    }
+
+    public  String getHighscoreUser()
+    {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getString(KEY_USER, null);
     }
 }

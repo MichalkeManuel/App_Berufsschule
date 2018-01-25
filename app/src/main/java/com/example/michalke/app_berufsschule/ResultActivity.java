@@ -1,5 +1,6 @@
 package com.example.michalke.app_berufsschule;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,9 +13,21 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class ResultActivity extends AppCompatActivity
 {
-
+    private ProgressDialog progressDialog;
     int item_selection = 0;
 
     @Override
@@ -26,39 +39,128 @@ public class ResultActivity extends AppCompatActivity
         TextView level = (TextView) findViewById(R.id.tLevelView);
         TextView scoreUser = (TextView) findViewById(R.id.scoreUserView);
         TextView scoreLabel = (TextView) findViewById(R.id.resultView);
-        TextView highScoreUser = (TextView) findViewById(R.id.highscoreUserView);
+        //TextView scoreNrLabel = (TextView) findViewById(R.id.scoreView);
+        //TextView highScoreUser = (TextView) findViewById(R.id.highscoreUserView);
         TextView highScoreLabel = (TextView) findViewById(R.id.highscoreView);
 
-        SharedPreferences prefs = this.getSharedPreferences("GAME_MODE", Context.MODE_PRIVATE);
-
-        int levelInt = getIntent().getIntExtra("LEVEL", 0);
-
+        final int levelInt = getIntent().getIntExtra("LEVEL", 0);
+        final String level_no = Integer.toString(levelInt);
+        final String user = SharedPrefManager.getInstance(this).getUsername();
 
         String levelString = getIntent().getStringExtra("LEVEL_No");
         level.setText(levelString);
 
-        scoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-        String scoreString = getIntent().getStringExtra("SCORE_String");
+        scoreUser.setText(user);
+        final String scoreString = getIntent().getStringExtra("SCORE_String");
         scoreLabel.setText(scoreString);
-        int score = scoreToInt(scoreString);
+        final int scoreInt = scoreToInt(scoreString);
+        final String score = Integer.toString(scoreInt);
+        highScoreLabel.setText(score);
+        Toast.makeText(ResultActivity.this, "Level: " + level_no + " " + user + " Score: " + score, Toast.LENGTH_SHORT).show();
 
-        highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-        highScoreUser.setText("Noch nicht bestätigt");
-        String highScoreString = prefs.getString("HIGHSCORE_String", "9:99:999");
-        highScoreLabel.setText(highScoreString);
-        int highScore = scoreToInt(highScoreString);
 
-        if (score < highScore)
+        //#################
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Bitte warten...");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_PUSHSCORE, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        if (!obj.getBoolean("error")) {
+                            SharedPrefManager.getInstance(getApplicationContext()).pushScore(obj.getInt("id"), obj.getInt("level_no"), obj.getString("user"), obj.getInt("score"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("level_no", level_no);
+                    params.put("user", user);
+                    params.put("score", score);
+                    return params;
+                }
+            };
+            RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        //################
+
+        /*if (levelInt == 1)
         {
-            highScore = score;
-            highScoreUser.setText(SharedPrefManager.getInstance(this).getUsername());
-            highScoreLabel.setText(Integer.toString(highScore));
-            prefs.edit().putInt("highScore", highScore).apply();
+            highScoreUser.setText("HighScore-Liste: 'aktuelle IP-Adresse/app_reglog/ScoresLV1.php");
         }
-        else
+        else if (levelInt == 2)
         {
-            highScoreLabel.setText(Integer.toString(highScore));
+            highScoreUser.setText("HighScore-Liste: 'aktuelle IP-Adresse/app_reglog/ScoresLV2.php");
         }
+        else if (levelInt == 3)
+        {
+            highScoreUser.setText("HighScore-Liste: 'aktuelle IP-Adresse/app_reglog/ScoresLV3.php");
+        }*/
+
+        //################
+        /*StringRequest stReq = new StringRequest(Request.Method.POST, Constants.URL_GETSCORE, new Response.Listener<String>()
+        {
+            @Override
+            public void onResponse(String response)
+            {
+                try
+                {
+                    JSONObject obj = new JSONObject(response);
+                    if(!obj.getBoolean("error"))
+                    {
+                        SharedPrefManager.getInstance(getApplicationContext()).highscoreToSharedPrefMan(obj.getString("user"), obj.getInt("score"));
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError
+            {
+                Map<String, String> params = new HashMap<>();
+                params.put("level_no", level_no);
+                params.put("user", user);
+                params.put("score", score);
+                return params;
+            }
+        };
+        RequestHandler.getInstance(this).addToRequestQueue(stReq);
+        //final String  hsUser = SharedPrefManager.getInstance(this).getHighscoreUser();
+        //highScoreUser.setText(hsUser);
+        //final String highscore = SharedPrefManager.getInstance(this).getHighscoreValue();
+        //highScoreLabel.setText(highscore);*/
+        //################
+
     }
 
     private int scoreToInt(String string)
@@ -68,7 +170,6 @@ public class ResultActivity extends AppCompatActivity
         String s = "" + scoreArray[0] + scoreArray[1] + scoreArray[2];
         int score = Integer.parseInt(s);
         return score;
-        //Toast.makeText(ResultActivity.this,);
     }
 
     public void home (View view)

@@ -6,8 +6,9 @@ package com.example.michalke.app_berufsschule;
 
 public class Constants
 {
-    private static final String ROOT_URL = "http://192.168.17.201/app_reglog/v1/";
+    private static final String ROOT_URL = "http://192.168.2.151/app_reglog/v1/";
     public static final String URL_REGISTER = ROOT_URL+"registerUser.php";
     public static final String URL_LOGIN = ROOT_URL+"userLogin.php";
-    public static final String URL_SCORE = ROOT_URL+"";
+    public static final String URL_PUSHSCORE = ROOT_URL+"pushScores.php";
+    //public static final  String URL_GETSCORE = ROOT_URL+"getScores.php";
 }

@@ -43,7 +43,7 @@ public class SinglePlayer_Level3 extends AppCompatActivity
     float currentY = 450.0f;
     boolean stepOn1 = false;
     boolean stepOn2 = false;
-    //int level = 3;
+    int level = 3;
     String levelNo = "Level 3";
 
     @Override
@@ -298,7 +298,7 @@ public class SinglePlayer_Level3 extends AppCompatActivity
                 Intent resultIntent = new Intent(SinglePlayer_Level3.this, ResultActivity.class);
                 resultIntent.putExtra("SCORE_String", tTimerWatch.getText());
                 //resultIntent.putExtra("SCORE_Value", );
-                //resultIntent.putExtra("LEVEL", level);
+                resultIntent.putExtra("LEVEL", level);
                 resultIntent.putExtra("LEVEL_No", levelNo);
                 startActivity(resultIntent);
 
