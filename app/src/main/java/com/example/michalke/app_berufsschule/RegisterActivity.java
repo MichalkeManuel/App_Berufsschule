@@ -38,12 +38,12 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        if(SharedPrefManager.getInstance(this).isLoggedIn())
+        /*if(SharedPrefManager.getInstance(this).isLoggedIn())
         {
             finish();
             startActivity(new Intent(this, UserActivity.class));
             return;
-        }
+        }*/
 
         eRSurname = (EditText) findViewById(R.id.eRSurname);
         eRForename = (EditText) findViewById(R.id.eRForename);

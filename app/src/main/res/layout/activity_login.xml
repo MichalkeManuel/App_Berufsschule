@@ -129,7 +129,6 @@
             android:onClick="lRegister"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
 
-
         <TextView
             android:id="@+id/tHinweis"
             android:layout_width="wrap_content"

@@ -88,7 +88,7 @@ public class SharedPrefManager
         return true;
     }
 
-    public boolean highscoreToSharedPrefMan(String user, int score)
+    /*public boolean highscoreToSharedPrefMan(String user, int score)
     {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -109,5 +109,5 @@ public class SharedPrefManager
     {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getString(KEY_USER, null);
-    }
+    }*/
 }

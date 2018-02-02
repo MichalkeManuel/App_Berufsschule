@@ -35,9 +35,6 @@ public class SinglePlayer_Level1 extends AppCompatActivity
             secs %= 60;
             int miliseconds = (int) (updateTime%1000);
             tTimerWatch.setText("" + mins + ":" + String.format("%02d", secs) + ":" + String.format("%03d", miliseconds));
-            //tTimerWatch.toString().split(":");
-            String watch = tTimerWatch.toString();
-            //int timer = Integer.parseInt(watch.replaceAll("[\\D]",""));
             customhandler.postDelayed(this, 0);
         }
     };
